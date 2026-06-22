@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>竞彩网 · 信息卡片介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      background-color: #f5f7fa;
+    }
+
+    /* 深色头图 */
+    .hero {
+      background: linear-gradient(135deg, #0b1a2e 0%, #1e3a5f 100%);
+      color: #e9edf2;
+      padding: 4rem 2rem 3.5rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 span {
+      color: #f7d44a;
+      font-weight: 600;
+    }
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: #b6c8da;
+      line-height: 1.7;
+    }
+
+    /* 浅色正文区 */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* 信息卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem 1.8rem;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s ease, box-shadow 0.25s ease;
+      border: 1px solid #eef2f6;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.07);
+    }
+    .card h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #0b1a2e;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .card p {
+      color: #3b4a5e;
+      font-size: 0.98rem;
+      margin-bottom: 0.6rem;
+    }
+    .card .tag {
+      display: inline-block;
+      background: #e6edf5;
+      color: #1a3a57;
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      margin-top: 0.8rem;
+    }
+
+    /* 主视觉卡片 (更大) */
+    .card-feature {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2.5rem;
+      background: white;
+      border-radius: 24px;
+      padding: 2.8rem 2.5rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      border: 1px solid #eef2f6;
+      margin-bottom: 0.5rem;
+    }
+    .card-feature .visual {
+      flex: 1 1 200px;
+      min-width: 160px;
+      background: linear-gradient(145deg, #1e3a5f, #2b4f77);
+      border-radius: 18px;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f7d44a;
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+    .card-feature .content {
+      flex: 3 1 320px;
+    }
+    .card-feature .content h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #0b1a2e;
+      margin-bottom: 0.75rem;
+    }
+    .card-feature .content p {
+      color: #2d4057;
+      font-size: 1.02rem;
+    }
+
+    /* 自然链接段落 */
+    .link-section {
+      background: white;
+      border-radius: 24px;
+      padding: 2.5rem 2.2rem;
+      margin: 2.5rem 0;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+      border: 1px solid #eef2f6;
+    }
+    .link-section p {
+      font-size: 1.04rem;
+      color: #1f2f41;
+      max-width: 800px;
+    }
+    .link-section a {
+      color: #c9770e;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .link-section a:hover {
+      border-bottom-color: #c9770e;
+    }
+
+    /* FAQ 摘要区块 */
+    .faq-summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.8rem;
+      margin: 2rem 0 1rem;
+    }
+    .faq-item {
+      background: white;
+      border-radius: 18px;
+      padding: 1.6rem 1.6rem 1.4rem;
+      border-left: 4px solid #f7d44a;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.02);
+    }
+    .faq-item dt {
+      font-weight: 600;
+      color: #0b1a2e;
+      margin-bottom: 0.4rem;
+      font-size: 1.05rem;
+    }
+    .faq-item dd {
+      color: #40546b;
+      font-size: 0.95rem;
+    }
+
+    /* 强调色链接 (额外) */
+    .accent-link {
+      color: #c9770e;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px dotted #c9770e;
+    }
+    .accent-link:hover {
+      border-bottom-style: solid;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      .hero { padding: 3rem 1.2rem 2.5rem; }
+      .hero h1 { font-size: 2.2rem; }
+      .card-feature { flex-direction: column; padding: 2rem 1.5rem; gap: 1.5rem; }
+      .card-feature .visual { width: 100%; height: 120px; font-size: 2rem; }
+      .container { padding: 1.8rem 1rem 3rem; }
+      .card-grid { gap: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 深色头图 -->
+  <header class="hero">
+    <h1>信息·<span>竞彩</span>视野</h1>
+    <p>围绕赛事数据与策略判断，为活跃用户提供结构化的信息卡片与匹配场景。主题覆盖资讯、分析工具及群体视角。</p>
+  </header>
+
+  <!-- 浅色正文区 -->
+  <main class="container">
+
+    <!-- 主视觉卡片 -->
+    <div class="card-feature">
+      <div class="visual">CJ</div>
+      <div class="content">
+        <h2>主视觉 · 赛事数据聚合</h2>
+        <p>以卡片化方式呈现关键指标、赛前趋势与实时变动。聚焦于信息密度与可读性，帮助用户快速建立赛事情境认知。模块包括近期交锋、热度分布以及阵容变动摘要。</p>
+      </div>
+    </div>
+
+    <!-- 用途卡片 + 适合人群 (混合卡片网格) -->
+    <div class="card-grid">
+      <!-- 用途卡片 1 -->
+      <div class="card">
+        <h3>📋 用途 · 赛前简报</h3>
+        <p>每日更新核心赛事提示，包含近期战绩、伤停概况及天气影响。每条简报控制在 60 字以内，适合赛前快速浏览。</p>
+        <span class="tag">即时信息</span>
+      </div>
+      <!-- 用途卡片 2 -->
+      <div class="card">
+        <h3>📊 用途 · 对比卡片</h3>
+        <p>支持球队/选手关键数据的横向对比：控球率、射门转化、防守稳定性。卡片式对比降低信息过载，利于判断。</p>
+        <span class="tag">数据工具</span>
+      </div>
+      <!-- 适合人群 1 -->
+      <div class="card">
+        <h3>👥 适合 · 分析型用户</h3>
+        <p>偏好基于数据与趋势做决策的用户。卡片提供结构化信息，便于自行解读而非被动接收结论。</p>
+        <span class="tag">理性视角</span>
+      </div>
+      <!-- 适合人群 2 -->
+      <div class="card">
+        <h3>👥 适合 · 快速读者</h3>
+        <p>时间碎片化，需要精炼信息而非长篇分析。卡片标题与摘要直接呈现要点，降低阅读负担。</p>
+        <span class="tag">效率优先</span>
+      </div>
+    </div>
+
+    <!-- 自然链接段落 (嵌入竞彩网) -->
+    <div class="link-section">
+      <p>对于持续关注赛事动态的用户，<a href="https://zhhome-jingcai.com">竞彩网</a> 提供了结构化的资讯流与数据面板，覆盖主流联赛与重点对抗。信息组织方式侧重可扫描性与对比效率，适合作为日常信息节点之一。</p>
+    </div>
+
+    <!-- FAQ 摘要 (差异化) -->
+    <section>
+      <h3 style="font-weight: 600; color: #0b1a2e; margin-bottom: 1.2rem; font-size: 1.3rem;">常见问题 · 摘要</h3>
+      <dl class="faq-summary">
+        <div class="faq-item">
+          <dt>卡片信息更新频率？</dt>
+          <dd>基础数据每 6 小时刷新，赛前 2 小时追加实时变动。卡片均标注信息时间戳。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>数据来源范围？</dt>
+          <dd>整合公开赛事统计与机构趋势数据，不包含内部或未授权信息。卡片标明数据维度。</dd>
+        </div>
+        <div class="faq-item">
+          <dt>是否提供自定义卡片？</dt>
+          <dd>当前版本支持收藏常用对比组合，后续将开放标签筛选。请留意 <a href="https://zhhome-jingcai.com" class="accent-link">竞彩网</a> 更新日志。</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- 简洁说明 / 自然收尾 -->
+    <div style="margin-top: 2.8rem; padding: 0.8rem 0 0.2rem; border-top: 1px solid #dce3ed; color: #51677e; font-size: 0.9rem;">
+      <p>信息卡片式页面 · 聚焦结构化阅读与场景匹配。内容基于公开信息整理，仅供参考。</p>
+    </div>
+
+  </main>
+</body>
+</html>
